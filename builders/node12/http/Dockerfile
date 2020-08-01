@@ -3,10 +3,10 @@ FROM node:12-slim
 WORKDIR /app
 
 # internal package.json
-COPY package.json package-lock.json ./
+COPY deploy-builders/builders/node12/http/package.json deploy-builders/builders/node12/http/package-lock.json ./
 RUN npm ci
 
-COPY entrypoint.js .
+COPY deploy-builders/builders/node12/http/entrypoint.js .
 
 WORKDIR /app/user
 

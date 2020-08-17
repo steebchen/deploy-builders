@@ -3,19 +3,18 @@ FROM node:12-slim
 WORKDIR /app
 
 # internal package.json
-COPY deploy-builders/builders/node12/http/package.json deploy-builders/builders/node12/http/package-lock.json ./
+COPY builder/package.json builder/package-lock.json ./
 RUN npm ci
 
-COPY deploy-builders/builders/node12/http/entrypoint.js .
+COPY builder/entrypoint.js .
+COPY common/ ./common/
 
 WORKDIR /app/user
 
-COPY user/package.json ./
-# TODO lockfiles
-RUN npm install
+COPY user/package.json user/package-lock.json* user/yarn.lock* ./
 
+RUN sh ../common/install.sh
 COPY user/ .
-
 WORKDIR /app
 
 EXPOSE 8080

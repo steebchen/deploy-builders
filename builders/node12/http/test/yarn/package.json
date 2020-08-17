@@ -1,0 +1,6 @@
+{
+  "name": "user-test",
+  "dependencies": {
+    "uuid": "^8.3.0"
+  }
+}

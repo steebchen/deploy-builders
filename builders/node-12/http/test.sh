@@ -14,6 +14,9 @@ for dir in "${tests[@]}"; do
 
 	docker build -f Dockerfile -t "builder-$dir" .
 
+	rm -r "user"
+	rm -r "common"
+
 	echo "$dir success"
 done
 

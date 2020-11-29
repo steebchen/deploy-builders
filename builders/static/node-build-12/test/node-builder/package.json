@@ -1,0 +1,10 @@
+{
+  "name": "user-test",
+  "output": "dist",
+  "scripts": {
+    "build": "mkdir -p dist/ && cp index.html dist/index.html"
+  },
+  "dependencies": {
+    "uuid": "^8.3.0"
+  }
+}
